@@ -21,7 +21,7 @@
  *    Github : https://github.com/xuan525
 */
 
-namespace RocksmithToolkitLib.AudioUtils.Lufs
+namespace AudioTools.Utils.Lufs
 {
     /// <summary>
     /// Porting from : https://github.com/klangfreund/LUFSMeter/blob/master/filters/SecondOrderIIRFilter.cpp

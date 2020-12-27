@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RocksmithToolkitGUI</RootNamespace>
     <AssemblyName>RocksmithToolkitGUI</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>RocksmithToolkitGUI.Program</StartupObject>
     <PublishUrl>publish\</PublishUrl>
@@ -44,6 +44,7 @@
     <NoWarn>
     </NoWarn>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -54,6 +55,7 @@
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <NoWarn>0169, 0162</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>songcreator.ico</ApplicationIcon>
@@ -65,6 +67,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -383,6 +386,10 @@
     <None Include="Resources\pick.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AudioTools\AudioTools.csproj">
+      <Project>{dc3b13ae-82d4-43a4-be8a-a08f047874f8}</Project>
+      <Name>AudioTools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\lib\RocksmithToTabLib\RocksmithToTabLib.csproj">
       <Project>{A391030A-8289-4B6A-8117-1C7995808AD5}</Project>
       <Name>RocksmithToTabLib</Name>

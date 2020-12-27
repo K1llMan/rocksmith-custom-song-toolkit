@@ -12,6 +12,9 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+
+using AudioTools.Common;
+
 using Ookii.Dialogs;
 using RocksmithToolkitGUI.DDC;
 using RocksmithToolkitLib.DLCPackage.Manifest.Functions;
@@ -31,12 +34,9 @@ using RocksmithToolkitGUI.Config;
 using RocksmithToolkitLib.Conversion;
 using Newtonsoft.Json;
 
-using RocksmithToolkitLib.AudioUtils;
-
 using Formatting = Newtonsoft.Json.Formatting;
 using RocksmithToolkitLib.ToolkitTone;
 using MakePedalSetting = RocksmithToolkitLib.ToolkitTone.ToolkitPedal;
-
 
 namespace RocksmithToolkitGUI.DLCPackageCreator
 {
@@ -330,7 +330,7 @@ namespace RocksmithToolkitGUI.DLCPackageCreator
                 {
                     case GameVersion.None:
                     case GameVersion.RS2014:
-                        return "All Supported Files|*.wem;*.ogg;*.wav|Wwise 2013 audio files (*.wem)|*.wem|Ogg Vorbis audio files (*.ogg)|*.ogg|Wave audio files (*.wav)|*.wav";
+                        return "All Supported Files|*.wem;*.ogg;*.wav;*.mp3|Wwise 2013 audio files (*.wem)|*.wem|Ogg Vorbis audio files (*.ogg)|*.ogg|Wave audio files (*.wav)|*.wav|MPEG Layer 3 (*.mp3)|*.mp3";
                     default:
                         return "All Supported Files|*.ogg;*.wav|Wwise 2010 audio files (*.ogg)|*.ogg|Ogg Vorbis audio files (*.ogg)|*.ogg|Wave audio files (*.wav)|*.wav";
                 }
@@ -2597,8 +2597,21 @@ namespace RocksmithToolkitGUI.DLCPackageCreator
             {
                 ofd.Filter = CurrentOFDAudioFileFilter;
                 if (ofd.ShowDialog() == DialogResult.OK) {
-                    numVolSong.Value = AudioUtilities.GetLoudness(ofd.FileName);
-                    
+                    AudioTrack track = new AudioTrack(ofd.FileName, true);
+                    numVolSong.Value = Convert.ToDecimal(-16 - track.IntegratedLoudness);
+
+                    if (string.IsNullOrEmpty(txtArtist.Text))
+                        txtArtist.Text = track.Metadata.Artist;
+
+                    if (string.IsNullOrEmpty(txtAlbum.Text))
+                        txtAlbum.Text = track.Metadata.Album;
+
+                    if (string.IsNullOrEmpty(txtYear.Text))
+                        txtYear.Text = track.Metadata.Year.ToString();
+
+                    if (string.IsNullOrEmpty(txtSongTitle.Text))
+                        txtSongTitle.Text = track.Metadata.Title;
+
                     AudioPath = ofd.FileName;
                 }
             }

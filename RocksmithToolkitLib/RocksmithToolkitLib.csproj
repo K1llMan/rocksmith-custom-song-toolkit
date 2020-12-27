@@ -74,10 +74,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioUtils\AudioUtils.cs" />
-    <Compile Include="AudioUtils\Lufs\R128LufsMeter.cs" />
-    <Compile Include="AudioUtils\Lufs\SecondOrderIIRFilter.cs" />
-    <Compile Include="AudioUtils\Wav\WavReader.cs" />
     <Compile Include="GlobalsLib.cs" />
     <Compile Include="Conversion\Rs1Converter.cs" />
     <Compile Include="Conversion\Rs2014Converter.cs" />
@@ -294,7 +290,6 @@
     <None Include="Resources\XBox360_DLC_image.png" />
     <None Include="Resources\XBox360_KV.bin" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>rem RocksmithPreBuild.exe automatically updates Assembly.cs files and 

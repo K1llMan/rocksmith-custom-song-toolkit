@@ -24,7 +24,7 @@ using System.Text;
  *    Github : https://github.com/xuan525
 */
 
-namespace RocksmithToolkitLib.AudioUtils.Wav
+namespace AudioTools.Common
 {
     public class WavReader
     {

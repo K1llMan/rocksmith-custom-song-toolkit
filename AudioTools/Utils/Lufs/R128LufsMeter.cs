@@ -22,7 +22,7 @@ using System.Collections.Generic;
  *    Github : https://github.com/xuan525
 */
 
-namespace RocksmithToolkitLib.AudioUtils.Lufs
+namespace AudioTools.Utils.Lufs
 {
     /// <summary>
     /// ITU BS.1770 standard
@@ -66,7 +66,7 @@ namespace RocksmithToolkitLib.AudioUtils.Lufs
         public LoudnessUpdatedHandler ShortTermLoudnessUpdated;
 
         /// <summary>
-        /// The consturctor of the R128LufsMeter
+        /// The constructor of the R128LufsMeter
         /// </summary>
         public R128LufsMeter() : this(0.4, 0.75, 3)
         {
